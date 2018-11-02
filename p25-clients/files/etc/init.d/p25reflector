@@ -23,7 +23,7 @@ do_start() {
     echo ${PID} >${PID_FILE}
     >&2 echo "${PKG_NAME} started"
   else
-    >&2 echo "configuration file missing, ${PKG_NAME} will not start."
+    >&2 echo "configuration file is missing, ${PKG_NAME} will not start."
     return 1
   fi
   return 0
