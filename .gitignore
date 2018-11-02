@@ -1,5 +1,7 @@
+# Apple garbage
+.DS_Store
+
 # Prerequisites
-*.d
 
 # Object files
 *.o
