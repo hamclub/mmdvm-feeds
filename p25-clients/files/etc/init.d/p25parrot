@@ -1,0 +1,47 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2017,2018 BG5HHP
+
+
+START=99
+SERVICE_USE_PID=0
+
+PKG_NAME=P25Parrot
+BIN_FILE=/usr/sbin/P25Parrot
+PID_FILE=/tmp/P25Parrot.pid
+
+PORT=42011
+
+do_start() {
+	echo "Starting..."
+  ${BIN_FILE} -n ${PORT} >/dev/null 2>&1 &
+	sleep 3
+	local PID=`pidof ${PKG_NAME}`
+	if [ $? -eq 1 ]; then
+		echo "Process is not found, ${PKG_NAME} will not start."
+		return 1
+	fi
+	echo ${PID} >${PID_FILE}
+	>&2 echo "${PKG_NAME} started"
+	return 0
+}
+
+start() {
+  do_start
+}
+
+stop() {
+	if [ -e ${PID_FILE} ]; then
+		PID=`cat ${PID_FILE}`
+		kill $PID > /dev/null 2>&1
+		rm -f ${PID_FILE}
+		echo "${PKG_NAME} stopped"
+	else
+		echo "${PKG_NAME} is not running"
+	fi
+    return 0
+}
+
+restart() {
+	stop
+	start
+}

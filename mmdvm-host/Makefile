@@ -30,7 +30,7 @@ define Package/mmdvm-host
 endef
 
 define Package/mmdvm-host/description
-	The modified MMDVMHost package for OpenWrt, by BG5HHP
+	The MMDVMHost package for OpenWrt, by BG5HHP
 endef
 
 TARGET_CFLAGS += -std=c++0x -DOPENWRT=1
@@ -41,7 +41,7 @@ ifeq ($(ARCH),mips)
 endif
 
 TARGET_LDFLAGS += \
-       -Wl,-rpath-link=$(STAGING_DIR)/usr/lib \
+        -Wl,-rpath-link=$(STAGING_DIR)/usr/lib \
 
 MAKE_FLAGS +=\
         CFLAGS="$(TARGET_CFLAGS) $(TARGET_CPPFLAGS)" \

@@ -4,16 +4,17 @@
 START=99
 SERVICE_USE_PID=0
 
-PKG_NAME=MMDVMHost
-BIN_FILE=/usr/sbin/MMDVMHost
-CONF_FILE=/etc/MMDVM.ini
-PID_FILE=/tmp/MMDVMHost.pid
+PKG_NAME=P25Gateway
+BIN_FILE=/usr/sbin/P25Gateway
+CONF_FILE=/etc/P25Gateway.ini
+PID_FILE=/tmp/P25Gateway.pid
+
 
 do_start() {
   if [ -e ${CONF_FILE} ]; then
     echo "Starting..."
     ${BIN_FILE} ${CONF_FILE}
-    sleep 5
+    sleep 3
     local PID=`pidof ${PKG_NAME}`
     if [ $? -eq 1 ]; then
         echo "Process is not found, ${PKG_NAME} will not start."
@@ -34,7 +35,7 @@ start() {
 
 stop() {
   if [ -e ${PID_FILE} ]; then
-    local PID=`cat ${PID_FILE}`
+    PID=`cat ${PID_FILE}`
     kill $PID > /dev/null 2>&1
     rm -f ${PID_FILE}
     echo "${PKG_NAME} stopped"
@@ -45,6 +46,6 @@ stop() {
 }
 
 restart() {
-  stop
-  start
+	stop
+	start
 }

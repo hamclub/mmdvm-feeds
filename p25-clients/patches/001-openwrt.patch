@@ -1,0 +1,24 @@
+--- p25-clients-1.0.0.orig/Makefile	1970-01-01 08:00:00.000000000 +0800
++++ p25-clients-1.0.0/Makefile	2017-09-20 18:08:27.000000000 +0800
+@@ -0,0 +1,21 @@
++.p25-gateway:
++	make -C P25Gateway
++
++.p25-parrot:
++	make -C P25Parrot
++
++.p25-reflector:
++	make -C P25Reflector
++
++all: .p25-gateway .p25-parrot .p25-reflector
++
++clean:
++	make -C P25Gateway clean
++	make -C P25Parrot clean
++	make -C P25Reflector clean
++
++distclean:
++	make -C P25Gateway distclean
++	make -C P25Parrot distclean
++	make -C P25Reflector distclean
++
