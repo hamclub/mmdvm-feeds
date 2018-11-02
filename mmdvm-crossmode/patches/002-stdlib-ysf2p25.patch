@@ -1,0 +1,10 @@
+--- a/YSF2P25/P25Network.cpp
++++ b/YSF2P25/P25Network.cpp
+@@ -23,6 +23,7 @@
+ #include <cstdio>
+ #include <cassert>
+ #include <cstring>
++#include <cstdlib>
+ 
+ CP25Network::CP25Network(const std::string& localAddress, unsigned int localPort, const std::string& gatewayAddress, unsigned int gatewayPort, const std::string& callsign, bool debug) :
+ m_callsign(callsign),

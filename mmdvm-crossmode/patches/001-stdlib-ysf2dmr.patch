@@ -1,0 +1,12 @@
+diff --git a/YSF2DMR/DMRNetwork.cpp b/YSF2DMR/DMRNetwork.cpp
+index fe1a14c..b29d13b 100644
+--- a/YSF2DMR/DMRNetwork.cpp
++++ b/YSF2DMR/DMRNetwork.cpp
+@@ -26,6 +26,7 @@
+ #include <cstdio>
+ #include <cassert>
+ #include <cstring>
++#include <cstdlib>
+ 
+ const unsigned int BUFFER_LENGTH = 500U;
+ 
