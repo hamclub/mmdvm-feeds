@@ -19,6 +19,8 @@ PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE_PROTO:=git
 
+PKG_MIRROR_HASH:=skip
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/mmdvm-host
